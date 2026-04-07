@@ -1,0 +1,326 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  background: #0f0f11;
+  color: #f0eeff;
+  min-height: 100vh;
+}
+
+/* ── Layout ──────────────────────────────── */
+
+.app {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.header {
+  padding: 48px 0 32px;
+  border-bottom: 1px solid #2a2a32;
+  margin-bottom: 0;
+}
+
+
+.header-title {
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.header-title span { color: #6c63ff; }
+
+
+.main { padding-top: 24px; }
+
+/* ── Tabs ────────────────────────────────── */
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 0;
+}
+
+.tab {
+  padding: 10px 18px;
+  border: 1px solid #2a2a32;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  background: #1a1a1f;
+  color: #888899;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.2s, background 0.2s;
+}
+
+.tab:hover { color: #f0eeff; }
+
+.tab--active {
+  background: #0f0f11;
+  color: #f0eeff;
+  border-color: #3a3a45;
+}
+
+.tab-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 7px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  background: rgba(108, 99, 255, 0.15);
+  color: #6c63ff;
+}
+
+/* ── Panel ───────────────────────────────── */
+
+.panel {
+  background: #1a1a1f;
+  border: 1px solid #3a3a45;
+  border-radius: 0 12px 12px 12px;
+  padding: 28px;
+}
+
+/* ── Form elements ───────────────────────── */
+
+.field { margin-bottom: 16px; }
+
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #888899;
+  margin-bottom: 6px;
+  letter-spacing: 0.03em;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  background: #0f0f11;
+  border: 1px solid #2a2a32;
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #f0eeff;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #444455;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+.input--error { border-color: #ef4444; }
+.input--error:focus { box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2); }
+
+.textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+
+.error {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px 20px;
+  background: #6c63ff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s;
+  margin-top: 4px;
+}
+
+.btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+.success-banner {
+  margin-top: 12px;
+  padding: 11px 16px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #22c55e;
+}
+
+/* ── Analysis panel ──────────────────────── */
+
+.analysis-panel {
+  background: #0f0f11;
+  border: 1px solid #2a2a32;
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 12px;
+}
+
+.analysis-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #555566;
+  margin-bottom: 10px;
+}
+
+.dept-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid;
+  margin-bottom: 14px;
+}
+
+.confidence {
+  font-size: 11px;
+  font-weight: 400;
+  opacity: 0.75;
+  margin-left: 4px;
+}
+
+.score-bars { display: flex; flex-direction: column; gap: 8px; }
+
+.score-row {
+  display: grid;
+  grid-template-columns: 70px 1fr 36px;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-name { font-size: 12px; color: #888899; }
+
+.score-track {
+  height: 4px;
+  background: #2a2a32;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.4s ease;
+}
+
+.score-pct { font-size: 11px; color: #555566; text-align: right; }
+
+/* ── Keywords & NLP tokens ───────────────── */
+
+.keywords { margin-top: 14px; }
+.nlp-tokens { margin-top: 10px; }
+
+.keywords-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #555566;
+  margin-bottom: 6px;
+}
+
+.keywords-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.keyword-chip {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  background: rgba(108, 99, 255, 0.12);
+  color: #a89fff;
+  border: 1px solid rgba(108, 99, 255, 0.22);
+}
+
+.token-chip {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+}
+
+.token-noun {
+  background: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.token-verb {
+  background: rgba(34, 197, 94, 0.08);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.18);
+}
+
+/* ── Ticket log ──────────────────────────── */
+
+.ticket-log {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #2a2a32;
+}
+
+.ticket-log-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #555566;
+  margin-bottom: 12px;
+}
+
+.ticket-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #2a2a32;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: #0f0f11;
+}
+
+.ticket-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.ticket-body { flex: 1; min-width: 0; }
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.ticket-name { font-size: 13px; font-weight: 500; }
+.ticket-time { font-size: 11px; color: #444455; }
+.ticket-meta { font-size: 12px; color: #888899; margin-bottom: 4px; }
+.ticket-message { font-size: 12px; color: #888899; line-height: 1.5; }

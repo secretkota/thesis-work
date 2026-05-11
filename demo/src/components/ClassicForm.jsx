@@ -30,7 +30,7 @@ export function ClassicForm() {
   const onSubmit = (data) => {
     console.log('Submitted:', data)
     setSuccess(true)
-    reset() // сбрасываем форму
+    reset() 
     setTimeout(() => setSuccess(false), 3000)
   }
 
@@ -41,8 +41,6 @@ export function ClassicForm() {
         Checks only format rules: length, email format, etc.
       </p>
 
-      {/* handleSubmit(onSubmit) — RHF сначала валидирует, потом вызывает onSubmit */}
-      {/* noValidate отключает встроенную браузерную валидацию */}
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <Field label="Full name" error={errors.name?.message}>
           <input

@@ -24,7 +24,6 @@ const CATEGORY_META = {
  * @param {string}  [placeholder]
  */
 export function SemanticField({ name, label, rows = 5, placeholder }) {
-  // Это работает, если компонент обёрнут в FormProvider (мы делаем это в SemanticForm)
   const { register, formState: { errors } } = useFormContext()
 
   const value = useWatch({ name })
@@ -42,7 +41,6 @@ export function SemanticField({ name, label, rows = 5, placeholder }) {
         placeholder={placeholder}
         style={{
           ...styles.textarea,
-          // Красная рамка если есть ошибка валидации
           borderColor: error ? '#ef4444' : '#d1d5db',
         }}
         {...register(name)}

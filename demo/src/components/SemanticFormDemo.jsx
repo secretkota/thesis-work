@@ -25,7 +25,7 @@ export function SemanticFormDemo() {
 
   const form = useSemanticForm({
     schema,
-    semanticFields: ['message'], // только поле "message" анализируем семантически
+    semanticFields: ['message'],
   })
 
   const { register, handleSubmit, reset, formState: { errors } } = form
